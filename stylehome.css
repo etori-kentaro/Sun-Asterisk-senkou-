@@ -1,0 +1,56 @@
+
+
+body {
+  /* background-color:808080;
+  margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:url("./images/home.jpg");
+    background-repeat: no-repeat;
+    background-position:50% 50%;
+    background-size:contain; */
+    margin: 0;
+      width: 100vw;
+      height: 100vh;
+    background:url('../images/home.jpg');
+      background-repeat:no-repeat;
+      background-position:50% 50%;
+      background-size:contain;
+      background-color:#808080;
+      border:1px solid #808080;
+      padding-left:20px;
+}
+
+.box9 {
+  width:200px;
+  height:510px;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #000;
+    background: #ffffff;
+    border-top: solid 10px #000;
+}
+.box9 p {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     : 19pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 16px 24px;   /* 余白       */
+  background    : #f87f07;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #f87f07;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #f87f07;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}

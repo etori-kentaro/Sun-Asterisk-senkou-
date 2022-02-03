@@ -1,0 +1,125 @@
+<html>
+<head>
+  <title>就活面接対策Webアプリ</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-1.12.4.min.js"></script>
+  <script src="program_STAGE1.js"></script>
+  <style>
+  #overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(99, 99, 99, 0.3);
+    display: none;
+    z-index: 998;
+  }
+  #overlayWindow {
+    width: 90%;
+    height: 70%;
+    margin: 100px auto;
+    border: 2px solid #0000FF;
+    background-color: #9999FF;
+    text-align: left;
+    display: none;
+    z-index: 999;
+  }
+  </style>
+
+</head>
+<body>
+
+  <!-- カメラ -->
+  <div>
+    <video id="video" width="546" style="position:absolute;left:680px;top:10px;">></video>
+  </div>
+  <script>
+  camera();
+  </script>
+
+  <!-- 面接官の画像出力 -->
+  <img class="interviewer" id="img"
+  style="position:absolute;left:50px;top:10px;">
+
+  <!-- 面接官の質問出力 -->
+  <div class="box" style="position:absolute;left:45px;top:390px;">
+    <p>
+      <font size="5"><面接官></font> <br>
+      <div class=question id="Q"><font size="3">
+        それでは面接を開始します。「面接開始」ボタンを押してください。
+      </font></div>
+    </p>
+  </div>
+
+  <!-- 次の質問へ -->
+  <input type="button" value="面接開始" id="nextq"
+  onclick="imgSelect();questionSelect();voice();clickNextBtn();"
+  style="position:absolute;left:450;top:590px;width:100;height:40;">
+
+  <!-- 音声入力 -->
+  <div class="box2" style="position:absolute;left:680px;top:390px;">
+    <p>
+      &emsp;
+      <font size="5">回答</font> <br>
+      <div id="result-div" >　</div>
+      <font size="5">
+        <script>voice();</script>
+      </font>
+    </p>
+  </div>
+
+  <!-- 結果画面 -->
+  <button id="button1"
+  style="position:absolute;left:620px;top:590px;width:100;height:40;
+  background: #FFCC66;">
+  結果
+</button>
+<div id="overlay">
+  <div id="overlayWindow">
+    <p>
+      <div id="result">
+        <script>
+        result();
+        </script>
+      </div>
+
+    </p>
+    <button id="button2">もう一度</button>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function() {
+  $('#button1').on('click', function() {
+    $("#overlay, #overlayWindow").fadeIn();
+  });
+
+  $('#button2').on('click', function() {
+    resetVariable();
+    window.location.reload();
+    $("#overlay, #overlayWindow").fadeOut();
+  });
+});
+</script>
+
+<script>
+//次の質問ボタンについて
+document.getElementById("nextq").style.visibility ="visible";
+//結果ボタンについて
+document.getElementById("button1").style.visibility ="hidden";
+</script>
+
+<!-- 合成音声 -->
+<!-- <script>
+// 発言を作成
+const uttr = new SpeechSynthesisUtterance("Hello World!")
+// 発言を再生 (発言キューに発言を追加)
+speechSynthesis.speak(uttr);
+</script> -->
+
+</body>
+</html>
